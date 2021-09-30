@@ -1,6 +1,6 @@
 //https://www.eclipse.org/paho/clients/js/
 
-function LED1_On() {
+function BOTON1 {
 	//alert("led on");
 	console.log("led on");
 	//document.getElementById("sensor").innerHTML="led on";
