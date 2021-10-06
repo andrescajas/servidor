@@ -1,6 +1,6 @@
 function LED1_On() {
   //alert("led on");
-  console.log("semsor_1");
+  console.log("sensor_1");
   //document.getElementById("sensor").innerHTML="led on";
   message = new Paho.MQTT.Message("ON");
       message.destinationName = "efromero.fie@unach.edu.ec/t1";
