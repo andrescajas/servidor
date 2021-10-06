@@ -1,22 +1,29 @@
-//https://www.eclipse.org/paho/clients/js/
+function LED1_On() {
+  //alert("led on");
+  console.log("valores");
+  //document.getElementById("sensor").innerHTML="led on";
+  message = new Paho.MQTT.Message("ON");
+      message.destinationName = "efromero.fie@unach.edu.ec/t1";
+      client.send(message);
+}
 
-function LED_On() {
-	//alert("led on");
-	console.log("led on");
-	//document.getElementById("sensor").innerHTML="led on";
-	message = new Paho.MQTT.Message("ON");
-    	message.destinationName = "aecajas.fie@unach.edu/t1";
-    	client.send(message);
-  
+function LED1_Off(){  
+  //alert("hostorial");
+  console.log("led off");
+  message = new Paho.MQTT.Message("OFF");
+      message.destinationName = "efromero.fie@unach.edu.ec/t1";
+      client.send(message);
 }
-function LED1_Off(){	
-	//alert("led off");
-	console.log("led off");
-	message = new Paho.MQTT.Message("OFF");
-    	message.destinationName = "aecajas.fie@unach.edu/t1";
-    	client.send(message);
-	//document.getElementById("sensor").innerHTML="led off";
+
+
+function LED1_his(){  
+  //alert("hostorial");
+  console.log("led off");
+  message = new Paho.MQTT.Message("HIST");
+      message.destinationName = "efromero.fie@unach.edu.ec/t1";
+      client.send(message);
 }
+
 
 
 
@@ -33,8 +40,8 @@ function LED1_Off(){
   client.onMessageArrived = onMessageArrived;
   var options = {
    useSSL: false,
-    userName: "aecajas.fie@unach.edu",
-    password: "andres11",
+    userName: "efromero.fie@unach.edu.ec",
+    password: "eromero8",
     onSuccess:onConnect,
     onFailure:doFail
   }
@@ -47,9 +54,9 @@ function LED1_Off(){
     // Once a connection has been made, make a subscription and send a message.
     console.log("Conectado...");
 	
-    client.subscribe("aecajas.fie@unach.edu/t2");
-    message = new Paho.MQTT.Message("hola desde la web");
-    message.destinationName = "aecajas.fie@unach.edu/t1";
+    client.subscribe("efromero.fie@unach.edu.ec/t2");
+    message = new Paho.MQTT.Message("");
+    message.destinationName = "efromero.fie@unach.edu.ec/t2";
     client.send(message);
 	
   }
@@ -71,4 +78,3 @@ function LED1_Off(){
     console.log("onMessageArrived:"+message.payloadString);
 	  document.getElementById("sensor").innerHTML=message.payloadString;
   }
-  
